@@ -1,4 +1,4 @@
-**Bigram Language Model with Additive Smoothing - Readme**
+# Bigram Language Model with Additive Smoothing 
 
 ### Task Description:
 
@@ -8,25 +8,26 @@ This project aims to implement a bigram language model with additive smoothing. 
 
 1. **Maximum-Likelihood Estimation (MLE):**
    The model employs maximum-likelihood estimation for bigram probabilities, which is equivalent to relative frequency estimation. The formula used for estimating bigram probability is:
-   \[ \hat{p}_{\text{MLE}}(w_i|w_{i-1}) = \frac{\text{count}(w_{i-1}w_i)}{\text{count}(w_{i-1})} \]
+   
+   $ \hat{p} {\text{MLE} (w_i|w_{i-1}) = \frac{\text{count}(w_{i-1}w_i)}{\text{count}(w_{i-1})} \]$
 
-2. **Additive Smoothing:**
+3. **Additive Smoothing:**
    Additive smoothing is applied to handle unseen n-grams. A pseudo-count, α, is added to each n-gram count. The formula for bigram probability with additive smoothing is:
    \[ \hat{p}_{\alpha}(w_i|w_{i-1}) = \frac{\text{count}(w_{i-1}w_i) + \alpha}{\text{count}(w_{i-1}) + \alpha \cdot V} \]
    where \( V \) is the vocabulary size.
 
-3. **Optimization of α:**
+4. **Optimization of α:**
    The value of α is optimized to minimize the held-out perplexity of the validation set. 
 
-4. **Perplexity Computation:**
+5. **Perplexity Computation:**
    Perplexity is computed for both the validation and test sets. The perplexity measures how well the model predicts the given data. It is calculated using the formula:
    \[ \text{Perplexity} = \exp\left(-\frac{1}{N} \sum_{i=1}^{N} \log \hat{p}(w_i|w_{i-1})\right) \]
    where \( N \) is the number of words in the dataset.
 
-5. **Plotting:**
+6. **Plotting:**
    A plot is generated to visualize the relationship between validation-set perplexity and test-set perplexity across a range of α values. This analysis helps identify the optimal α value for the model.
 
-6. **Scaling to Larger Datasets:**
+7. **Scaling to Larger Datasets:**
    For further learning, the implementation is tested on larger dataset. This provides insights into how well the model scales in terms of time and memory as the dataset size increases.
 
 ## Results
